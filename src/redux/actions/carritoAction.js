@@ -1,5 +1,9 @@
-import { ADD_CARRITO } from "../../constants/types";
+import { ADD_CARRITO, CLEAR_CARRITO } from "../../constants/types";
 
 export const addCarrito = (product) => (dispatch) => {
   dispatch({ type: ADD_CARRITO, payload: product });
+};
+
+export const clear = () => (dispatch) => {
+  dispatch({ type: CLEAR_CARRITO, payload: [] });
 };

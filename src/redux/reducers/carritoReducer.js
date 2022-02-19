@@ -1,4 +1,4 @@
-import { ADD_CARRITO } from "../../constants/types";
+import { ADD_CARRITO, CLEAR_CARRITO } from "../../constants/types";
 
 const INITIAL_STATE = {
   carro: [],
@@ -10,6 +10,11 @@ const CarritoReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         carro: state.carro.concat(action.payload),
+      };
+    case CLEAR_CARRITO:
+      return {
+        ...state,
+        carro: action.payload,
       };
     default:
       return state;
