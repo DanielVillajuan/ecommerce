@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import * as productActions from "../../redux/actions/productAction";
 import Product from "./Product";
@@ -12,11 +13,15 @@ const Products = () => {
   }, [dispatch]);
 
   return (
-    <>
-      {products.map((p) => (
-        <Product key={p.id} product={p} />
-      ))}
-    </>
+    <Container>
+      <Row md={3} xs="auto">
+        {products.map((p) => (
+          <Col key={p.id} className="mb-4">
+            <Product product={p} />
+          </Col>
+        ))}
+      </Row>
+    </Container>
   );
 };
 
