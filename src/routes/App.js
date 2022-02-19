@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Carrito from "../components/Carrito";
-import Error from "../components/Error";
+import Status from "../components/Status";
 
 import Home from "../components/Home";
 import Navigation from "../components/Navbar";
@@ -13,7 +13,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/carrito" component={Carrito} />
-          <Route exact path="/error" component={Error} />
+          <Route exact path="/status" component={Status} />
         </Switch>
       </Navigation>
     </BrowserRouter>
