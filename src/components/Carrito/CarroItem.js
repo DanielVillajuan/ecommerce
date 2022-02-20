@@ -1,10 +1,10 @@
 import React from "react";
 import { Button, Container } from "react-bootstrap";
 
-const CarroItem = ({ item, key, onClickButton }) => {
+const CarroItem = ({ item, onClickButton }, ...props) => {
   return (
     <Container
-      key={key}
+      key={props.key}
       className="m-1 shadow-sm d-flex justify-content-between border  p-3 rounded align-items-center"
     >
       <Container
