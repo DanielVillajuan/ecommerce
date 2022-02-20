@@ -20,7 +20,7 @@ const Navigation = ({ children }) => {
 
   return (
     <>
-      <Navbar bg="dark" variant="dark">
+      <Navbar className="m-2" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand as={Link} to="/">
             Tiendas de productos

@@ -12,10 +12,7 @@ const Product = ({ product }) => {
 
   return (
     <>
-      <Card
-        className="mx-auto"
-        style={{ width: 250, height: 400, paddingBottom: "100%" }}
-      >
+      <Card className="mx-auto" style={{ width: "80%", height: "100%" }}>
         <Card.Img variant="top" src="/image-product.jpg" alt={product.title} />
         <Card.Body className="mx-auto px-4">
           <Card.Title>{product.title}</Card.Title>
