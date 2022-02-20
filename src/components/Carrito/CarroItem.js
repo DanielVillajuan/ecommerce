@@ -5,7 +5,7 @@ const CarroItem = ({ item, key, onClickButton }) => {
   return (
     <Container
       key={key}
-      className="d-flex justify-content-between border  p-3 rounded align-items-center"
+      className="m-1 shadow-sm d-flex justify-content-between border  p-3 rounded align-items-center"
     >
       <Container
         className="d-flex justify-content-between px-0 align-items-center"
