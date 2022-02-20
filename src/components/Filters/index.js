@@ -1,46 +1,33 @@
 import React from "react";
-import {
-  Container,
-  Dropdown,
-  DropdownButton,
-  Form,
-  InputGroup,
-} from "react-bootstrap";
+import { Container, Dropdown, DropdownButton, Form } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import * as productActions from "../../redux/actions/productAction";
 
 const Filters = () => {
+  const dispatch = useDispatch();
+
+  const orderLower = () => {
+    dispatch(productActions.orderByLower());
+  };
+  const orderHigher = () => {
+    dispatch(productActions.orderByHigher());
+  };
+
   return (
-    <Container className="d-flex justify-content-between py-4 px-0">
+    <Container className="d-flex py-2 px-0">
       <Form.Control
         className="mb-3"
-        size="sm"
         type="text"
         placeholder="Buscar producto por nombre"
+        style={{ width: 350 }}
       />
-      <InputGroup className="mb-3">
-        <DropdownButton
-          variant="outline-secondary"
-          title="Ordenar por "
-          id="input-group-dropdown-2"
-          align="end"
-        >
-          <Dropdown.Item
-            onClick={() => {
-              console.log("menor");
-            }}
-          >
-            Menor precio
-          </Dropdown.Item>
-          <Dropdown.Item
-            onClick={() => {
-              console.log("mayor");
-            }}
-          >
-            Mayor precio
-          </Dropdown.Item>
-          <Dropdown.Divider />
-          <Dropdown.Item>Ninguna</Dropdown.Item>
+
+      <Container className="mb-3 d-flex justify-content-end">
+        <DropdownButton variant="outline-secondary" title="Ordenar por ">
+          <Dropdown.Item onClick={orderLower}>Menor precio</Dropdown.Item>
+          <Dropdown.Item onClick={orderHigher}>Mayor precio</Dropdown.Item>
         </DropdownButton>
-      </InputGroup>
+      </Container>
     </Container>
   );
 };
