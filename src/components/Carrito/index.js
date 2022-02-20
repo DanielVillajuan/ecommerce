@@ -1,7 +1,6 @@
 import React from "react";
 import { Button, Container } from "react-bootstrap";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import * as userActions from "../../redux/actions/userActions";
 import * as carritoActions from "../../redux/actions/carritoAction";
@@ -27,6 +26,10 @@ const Carrito = () => {
     history.push("/status", success);
   };
 
+  const deleteItem = (id) => {
+    dispatch(carritoActions.clearCarritoById(id));
+  };
+
   const mapCarrito = () =>
     carro.map((item, index) => (
       <Container
@@ -48,7 +51,13 @@ const Carrito = () => {
           <p className="mx-2 mb-0">
             <b>${item.price}</b>
           </p>
-          <Button className="mx-2" variant="dark">
+          <Button
+            className="mx-2"
+            variant="dark"
+            onClick={() => {
+              deleteItem(item.id);
+            }}
+          >
             X
           </Button>
         </Container>

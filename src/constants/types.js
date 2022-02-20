@@ -3,6 +3,7 @@ export const GET_PRODUCTS = "GET_PRODUCTS";
 export const UPDATE_USER = "UPDATE_USER";
 export const ADD_CARRITO = "ADD_CARRITO";
 export const CLEAR_CARRITO = "CLEAR_CARRITO";
+export const CLEAR_CARRITO_BY_ID = "CLEAR_CARRITO_BY_ID";
 export const ORDER_BY_HIGHER = "ORDER_BY_HIGHER";
 export const ORDER_BY_LOWER = "ORDER_BY_LOWER";
 
