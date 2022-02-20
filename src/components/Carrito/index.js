@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import * as userActions from "../../redux/actions/userActions";
 import * as carritoActions from "../../redux/actions/carritoAction";
+import CarroItem from "./CarroItem";
 
 const Carrito = () => {
   const { carro } = useSelector((state) => state.carritoReducer);
@@ -30,47 +31,21 @@ const Carrito = () => {
     dispatch(carritoActions.clearCarritoById(id));
   };
 
-  const mapCarrito = () =>
-    carro.map((item, index) => (
-      <Container
-        key={index}
-        className="d-flex justify-content-between border  p-3 rounded align-items-center"
-      >
-        <Container
-          className="d-flex justify-content-between px-0 align-items-center"
-          style={{
-            borderRadius: 5,
-            backgroundClip: "content-box",
-            backgroundColor: "rgba(220,220,220,0.5)",
-          }}
-        >
-          <Container className="d-flex align-items-center px-0">
-            <img style={{ width: 70 }} alt="asd" src="/image-product.jpg" />
-            <h6 className="mb-0 mx-1">{item.title}</h6>
-          </Container>
-          <p className="mx-2 mb-0">
-            <b>${item.price}</b>
-          </p>
-          <Button
-            className="mx-2"
-            variant="dark"
-            onClick={() => {
-              deleteItem(item.id);
-            }}
-          >
-            X
-          </Button>
-        </Container>
-      </Container>
-    ));
-
   return (
     <>
       <h1 className="mb-4 mt-4 text-center">
-        <b>Carrito</b>
+        {totalPrice() > 0 ? <b>Carrito</b> : <b>Carrito Vacio!</b>}
       </h1>
       <Container style={{ width: "60%" }}>
-        {mapCarrito()}
+        {carro.map((item, index) => (
+          <CarroItem
+            item={item}
+            key={index}
+            onClickButton={() => {
+              deleteItem(item.id);
+            }}
+          />
+        ))}
         <Container className="d-flex justify-content-between border py-2 mt-4 rounded align-items-center">
           <b>Total</b>
           <b>${totalPrice()}</b>
@@ -79,9 +54,11 @@ const Carrito = () => {
           <Button variant="dark" onClick={redirectHome}>
             Volver al catalogo
           </Button>
-          <Button variant="dark" onClick={submitBuy}>
-            Finalizar compra
-          </Button>
+          {totalPrice() > 0 && (
+            <Button variant="dark" onClick={submitBuy}>
+              Finalizar compra
+            </Button>
+          )}
         </Container>
       </Container>
     </>
