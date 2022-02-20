@@ -3,7 +3,7 @@ import { Container, Dropdown, DropdownButton, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import * as productActions from "../../redux/actions/productAction";
 
-const Filters = () => {
+const Filters = ({ onChangeInput }) => {
   const dispatch = useDispatch();
 
   const orderLower = () => {
@@ -20,6 +20,7 @@ const Filters = () => {
         type="text"
         placeholder="Buscar producto por nombre"
         style={{ width: 350 }}
+        onChange={onChangeInput}
       />
 
       <Container className="mb-3 d-flex justify-content-end">
