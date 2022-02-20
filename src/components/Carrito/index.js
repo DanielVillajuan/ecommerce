@@ -57,7 +57,6 @@ const Carrito = () => {
 
   return (
     <>
-      {console.log(carro)}
       <h1 className="mb-4 mt-4 text-center">
         <b>Carrito</b>
       </h1>
