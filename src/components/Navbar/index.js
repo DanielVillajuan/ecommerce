@@ -23,7 +23,7 @@ const Navigation = ({ children }) => {
       <Navbar className="m-2 shadow" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand as={Link} to="/">
-            Tiendas de productos
+            Tienda de productos
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse className="justify-content-end">
