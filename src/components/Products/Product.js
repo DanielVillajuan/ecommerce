@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import * as carritoActions from "../../redux/actions/carritoAction";
 
 const Product = ({ product }) => {
+  const [handleButtonProperty, setHandleButtonProperty] = useState(true);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const addCarritoProduct = () => {
     dispatch(carritoActions.addCarrito(product));
+    setHandleButtonProperty(false);
+  };
+
+  const goCarrito = () => {
+    history.push("/carrito");
   };
 
   return (
@@ -20,9 +28,9 @@ const Product = ({ product }) => {
           <Button
             style={{ width: "100%" }}
             variant="dark"
-            onClick={addCarritoProduct}
+            onClick={handleButtonProperty ? addCarritoProduct : goCarrito}
           >
-            Agregar al carrito
+            {handleButtonProperty ? "Agregar al carrito" : "Ver Carrito"}
           </Button>
         </Card.Body>
       </Card>
