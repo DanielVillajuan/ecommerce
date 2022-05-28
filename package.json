@@ -1,7 +1,7 @@
 {
   "name": "enviopack-challenge-frontend",
   "version": "0.1.0",
-  "homepage": "https://danielvillajuan.github.io/ecommerce/",
+  "homepage": "https://danielvillajuan.github.io",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "5.16.2",
